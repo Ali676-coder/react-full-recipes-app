@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 const Logo = () => {
   return (
     <div>
-      <div className="nav">
+      <Link to="/" className="nav">
         <GiKnifeFork />
-        <Link to={"/"}>Delicious</Link>
-      </div>
+        <span className="logo-text">Delicious</span>
+      </Link>
     </div>
   );
 };
