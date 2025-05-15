@@ -10,11 +10,15 @@ const Searched = () => {
 
   // Get Recipes Function By Keyword Search
   const getSearched = async (name) => {
-    const data = await fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${name}`
-    );
-    const recipes = await data.json();
-    setSearchedRecipes(recipes.results);
+    try {
+      const data = await fetch(
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${name}`
+      );
+      const recipes = await data.json();
+      setSearchedRecipes(recipes.results);
+    } catch (error) {
+      setSearchedRecipes([]);
+    }
   };
 
   // Render Recipe Function
@@ -22,18 +26,22 @@ const Searched = () => {
     getSearched(params.search);
   }, [params.search]);
   return (
-    <Grid>
-      {searchedRecipes.map((item) => {
-        return (
-          <Card key={item.id}>
-            <Link to={`/Recipe/${item.id}`}>
-              <img src={item.image} alt="logo" />
-              <h4>{item.title}</h4>
-            </Link>
-          </Card>
-        );
-      })}
-    </Grid>
+    <>
+      {searchedRecipes && searchedRecipes.length > 0 ? (
+        <Grid>
+          {searchedRecipes.map((item) => (
+            <Card key={item.id}>
+              <Link to={`/Recipe/${item.id}`}>
+                <img src={item.image} alt="logo" />
+                <h4>{item.title}</h4>
+              </Link>
+            </Card>
+          ))}
+        </Grid>
+      ) : (
+        <Message>No results found for this search !</Message>
+      )}
+    </>
   );
 };
 
@@ -57,5 +65,10 @@ const Card = styled.div`
     padding: 0.7rem;
   }
 `;
-
+const Message = styled.p`
+  color: grey;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 2rem;
+`;
 export default Searched;

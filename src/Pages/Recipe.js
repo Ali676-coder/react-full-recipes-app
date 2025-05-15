@@ -147,10 +147,6 @@ const Button = styled.button`
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-
-  &:hover {
-    background: #eee;
-  }
 `;
 
 const Information = styled.div`

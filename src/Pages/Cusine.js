@@ -12,11 +12,15 @@ const Cusine = () => {
 
   // Get Recipes Function
   const getCusine = async (name) => {
-    const data = await fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}`
-    );
-    const recipes = await data.json();
-    setCusine(recipes.results);
+    try {
+      const data = await fetch(
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}`
+      );
+      const recipes = await data.json();
+      setCusine(recipes.results || []);
+    } catch (error) {
+      setCusine([]);
+    }
   };
 
   // Render Recipe Function
