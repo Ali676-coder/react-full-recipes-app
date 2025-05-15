@@ -1,17 +1,149 @@
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  min-height: 100vh;
-  background-image: linear-gradient(10deg, #1b2549 0%, #c1bed8 100%);
-}
+/* Start General Style */
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Monserrate", sans-serif;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smothing: antialiased;
+  -moz-osx-font-smothing: antialiased;
+}
+.App {
+  min-height: 100vh;
+}
+/* Start Nav bar : Logo + Category */
+.nav-bar {
+  width: 100%;
+  padding: 0 40px;
+  margin-bottom: 20px;
+}
+.nav-bar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid black;
+  width: 100%;
+}
+/* End Nav bar : Logo + Category */
+
+/* Start Nav Logo + Title */
+.nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 7px;
+  text-transform: uppercase;
+}
+.nav svg {
+  font-size: 2rem;
+}
+.nav a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+/* End Nav Logo + Title */
+
+/* Start Search Input */
+
+/* End Search Input */
+
+/* Start Pages */
+.pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem;
+}
+.pages > * {
+  width: 100%;
+  max-width: 1000px;
+}
+
+@media (max-width: 768px) {
+  .nav-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 1rem;
+  }
+
+  .nav a {
+    font-size: 1.2rem;
+  }
+
+  .pages {
+    padding: 0.75rem;
+  }
+
+  .pages > * {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-bar {
+    padding: 0.5rem;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+  }
+
+  .nav svg {
+    font-size: 1.5rem;
+  }
+
+  .nav a {
+    font-size: 0rem;
+  }
+
+  .category-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .pages {
+    padding: 0.5rem;
+  }
+
+  .pages > * {
+    padding: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+  }
+
+  h4 {
+    font-size: 0.95rem;
+  }
+}
+
+/* End Pages */
+h4 {
+  font-size: 1rem;
+  color: rgb(56, 56, 56);
+}
+h3 {
+  font-size: 1.5rem;
+  color: rgb(56, 56, 56);
+  line-height: 2.5rem;
+  margin: 1rem 0rem;
+}
+a {
+  color: rgb(56, 56, 56);
 }
